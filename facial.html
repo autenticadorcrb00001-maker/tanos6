@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Verificação Facial</title>
 <style>
 body, html {
@@ -90,22 +90,28 @@ const video = document.getElementById('video');
 const continueBtn = document.getElementById('continueBtn');
 const checkmark = document.getElementById('checkmark');
 
-// Solicita permissão da câmera
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
-.then(stream => {
-    video.srcObject = stream;
+// Função para iniciar câmera
+async function startCamera() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+        video.srcObject = stream;
 
-    // Simula enquadramento do rosto por 7 segundos
-    setTimeout(() => {
-        checkmark.style.display = 'block';
-        continueBtn.style.display = 'block';
-    }, 7000);
+        // Espera 7 segundos para simular enquadramento
+        setTimeout(() => {
+            checkmark.style.display = 'block';
+            continueBtn.style.display = 'block';
+        }, 7000);
 
-})
-.catch(err => alert('Erro ao acessar a câmera: ' + err));
+    } catch (err) {
+        alert('Erro ao acessar a câmera: ' + err);
+    }
+}
 
+// Inicia câmera automaticamente
+startCamera();
+
+// Evento do botão continuar
 continueBtn.addEventListener('click', () => {
-    alert("Verificação facial concluída! Redirecionando...");
     window.location.href = "telainicial.html"; // Rota atualizada
 });
 </script>
