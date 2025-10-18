@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação Facial</title>
+<style>
+body, html {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: Arial, sans-serif;
+    background:#fff;
+}
+.container {
+    position:relative;
+    width:100%;
+    max-width:400px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.video-wrapper {
+    position:relative;
+    width:100%;
+    max-width:320px;
+    aspect-ratio: 3/4; /* Mantém proporção */
+}
+video {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+    transform: scaleX(-1); /* espelhamento */
+}
+.face-frame {
+    position:absolute;
+    border: 4px solid #1462d8;
+    border-radius: 50%;
+    width:60%;
+    height:70%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    pointer-events:none;
+}
+.checkmark {
+    position:absolute;
+    font-size:48px;
+    color:green;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    display:none;
+}
+button {
+    margin-top:20px;
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    background:#1462d8;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="video-wrapper">
+        <video id="video" autoplay muted playsinline></video>
+        <div class="face-frame"></div>
+        <div id="checkmark" class="checkmark">✅</div>
+    </div>
+    <button id="continueBtn">Continuar</button>
+</div>
+
+<script>
+const video = document.getElementById('video');
+const continueBtn = document.getElementById('continueBtn');
+const checkmark = document.getElementById('checkmark');
+
+// Solicita permissão da câmera
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+.then(stream => {
+    video.srcObject = stream;
+
+    // Simula enquadramento do rosto por 7 segundos
+    setTimeout(() => {
+        checkmark.style.display = 'block';
+        continueBtn.style.display = 'block';
+    }, 7000);
+
+})
+.catch(err => alert('Erro ao acessar a câmera: ' + err));
+
+continueBtn.addEventListener('click', () => {
+    alert("Verificação facial concluída! Redirecionando...");
+    window.location.href = "telainicial.html"; // Rota atualizada
+});
+</script>
+
+</body>
+</html>

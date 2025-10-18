@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atendimento - bblue (Mock)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{
+    --primary-blue: #000000;
+    --dark-text: #333333;
+    --medium-gray: #71717a;
+    --btn-primary: #1462d8;
+    --btn-primary-hover: #0b3e86;
+}
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.phone {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 90px;
+    overflow-y: auto;
+}
+.header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.back-button {
+    color: var(--dark-text);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.header-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+.content {
+    padding: 0 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 4px;
+    text-align: center;
+}
+.card-container {
+    width: 100%;
+    background-color: var(--primary-blue);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.card-container h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.card-container p {
+    font-size: 14px;
+    color: #e0e0e0;
+}
+.support-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 360px;
+    background-color: var(--btn-primary);
+    color: white;
+    text-decoration: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    transition: background-color 0.2s, transform 0.2s;
+}
+.support-btn:hover {
+    background-color: var(--btn-primary-hover);
+    transform: translateX(-50%) translateY(-2px);
+}
+.support-btn svg {
+    width: 20px;
+    height: 20px;
+}
+</style>
+</head>
+<body>
+<div class="phone">
+    <div class="header">
+        <a href="credito.html" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
+            </svg>
+        </a>
+        <div class="header-title">Atendimento</div>
+    </div>
+
+    <div class="content">
+        <h1 class="main-title">Atendimento</h1>
+
+        <div class="card-container">
+            <h2>Precisa de ajuda?</h2>
+            <p>Nosso time de atendimento está pronto para tirar suas dúvidas e resolver qualquer problema.</p>
+            <p class="mt-4 text-lg font-bold">Clique no botão abaixo para falar com um atendente.</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5511999999999" target="_blank" class="support-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 6h18M3 14h12m-9 8h6M3 18h12"/>
+        </svg>
+        Receber Atendimento
+    </a>
+</div>
+</body>
+</html>

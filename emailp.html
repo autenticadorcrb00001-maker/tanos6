@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Confirme Pix - bblue (Mock)</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --primary-blue: #007bff; /* Azul vibrante */
+            --dark-text: #1a1a1a;
+            --medium-gray: #71717a;
+            --light-gray: #ddd;
+            --dark-blue-hover: #0056b3; /* Azul mais escuro para hover/clique */
+        }
+        /* Estrutura Base */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        .phone {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        
+        /* HEADER (Top Bar) */
+        .header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .back-button, .close-button {
+            color: var(--dark-text);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 5px;
+            text-decoration: none;
+        }
+        .back-button {
+            left: 10px;
+        }
+        
+        /* CORREÇÃO AQUI: Garante o tamanho e a cor do traço (stroke) */
+        .back-button svg {
+            width: 24px; /* w-6 */
+            height: 24px; /* h-6 */
+            stroke: #000 !important; /* Força o traço para preto puro */
+            stroke-width: 2; /* Aumenta a espessura do traço para destacar mais */
+        }
+        /* Garantindo que o ícone de fechar também tenha a cor correta, se for o caso */
+        .close-button svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--dark-text);
+            stroke-width: 2;
+        }
+
+        .close-button {
+            right: 10px;
+        }
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .content {
+            padding: 0 24px;
+            flex-grow: 1;
+            padding-top: 24px;
+        }
+        .main-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 50px;
+            line-height: 1.2;
+        }
+
+        /* Input Group Style */
+        .input-group {
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .input-group input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            padding: 5px 0;
+            background: none;
+            color: var(--dark-text);
+            letter-spacing: normal; 
+        }
+        .eye-icon {
+            font-size: 24px;
+            color: var(--primary-blue);
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        /* FOOTER (Botão Confirmar) */
+        .footer {
+            padding: 24px;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .confirm-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 18px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .confirm-button:hover, .confirm-button:focus {
+            background-color: var(--dark-blue-hover);
+        }
+        .arrow-right {
+            margin-left: 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="phone">
+    <div class="header">
+        <a href="fazerpix.html" class="back-button"> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </a>
+        <div class="header-title">Pagar</div> 
+        <a href="#" class="close-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a>
+    </div>
+    
+    <div class="content">
+        <h1 class="main-title">
+            Chave PIX <br>Email
+        </h1>
+
+        <div class="input-group">
+            <input type="text" placeholder="Digite sua Chave Pix..." value="" aria-label="Digite sua Chave Pix"> 
+            <span class="eye-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.172a1.012 1.012 0 0 1 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.172Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <button type="submit" class="confirm-button"> 
+            Confirmar
+            <span class="arrow-right">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </span>
+        </button>
+    </div>
+
+</div>
+</body>
+</html>
